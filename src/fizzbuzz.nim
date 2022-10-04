@@ -2,11 +2,11 @@ import std/strutils
 
 func fizzBuzz(num: int): string =
   if num mod 15 == 0:
-      return "FizzBuzz"
+    return "FizzBuzz"
   elif num mod 3 == 0:
-      return "Fizz"
+    return "Fizz"
   elif num mod 5 == 0:
-      return "Buzz"
+    return "Buzz"
   else:
     return $num
 
@@ -27,4 +27,8 @@ proc main(upper = false, lower = false): void =
 
 when isMainModule:
   import cligen
-  dispatch main
+  dispatch main, help = {
+    "help": "display this help",
+    "upper": "capitalize output",
+    "lower": "lowercase output"
+  }
