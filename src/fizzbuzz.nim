@@ -1,5 +1,15 @@
 import std/strutils
 
+func fizzBuzz(num: int): string =
+  if num mod 15 == 0:
+      return "FizzBuzz"
+  elif num mod 3 == 0:
+      return "Fizz"
+  elif num mod 5 == 0:
+      return "Buzz"
+  else:
+    return $num
+
 proc main(upper = false, lower = false): void =
   let input: string = readLine(stdin)
   var inputNumber: int
@@ -8,30 +18,13 @@ proc main(upper = false, lower = false): void =
   except ValueError:
     stderr.writeLine("Invalid input")
     return
-  if inputNumber mod 15 == 0:
-    if upper:
-      echo "FIZZBUZZ"
-    elif lower:
-      echo "fizzbuzz"
-    else:
-      echo "FizzBuzz"
-  elif inputNumber mod 3 == 0:
-    if upper:
-      echo "FIZZ"
-    elif lower:
-      echo "fizz"
-    else:
-      echo "Fizz"
-  elif inputNumber mod 5 == 0:
-    if upper:
-      echo "BUZZ"
-    elif lower:
-      echo "buzz"
-    else:
-      echo "Buzz"
+  if upper:
+    echo toUpperAscii fizzBuzz inputNumber
+  elif lower:
+    echo toLowerAscii fizzBuzz inputNumber
   else:
-    echo inputNumber
+    echo fizzBuzz inputNumber
 
 when isMainModule:
   import cligen
-  dispatch(main)
+  dispatch main
