@@ -1,6 +1,6 @@
 import std/strutils
 
-proc main(): void =
+proc main(upper = false, lower = false): void =
   let input: string = readLine(stdin)
   var inputNumber: int
   try:
@@ -9,13 +9,29 @@ proc main(): void =
     stderr.writeLine("Invalid input")
     return
   if inputNumber mod 15 == 0:
-    echo "fizzbuzz"
+    if upper:
+      echo "FIZZBUZZ"
+    elif lower:
+      echo "fizzbuzz"
+    else:
+      echo "FizzBuzz"
   elif inputNumber mod 3 == 0:
-    echo "fizz"
+    if upper:
+      echo "FIZZ"
+    elif lower:
+      echo "fizz"
+    else:
+      echo "Fizz"
   elif inputNumber mod 5 == 0:
-    echo "buzz"
+    if upper:
+      echo "BUZZ"
+    elif lower:
+      echo "buzz"
+    else:
+      echo "Buzz"
   else:
     echo inputNumber
 
 when isMainModule:
-  main()
+  import cligen
+  dispatch(main)
