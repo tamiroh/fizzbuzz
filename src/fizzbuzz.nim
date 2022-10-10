@@ -11,19 +11,18 @@ func judge(num: int): string =
     return $num
 
 proc fizzbuzz(upper = false, lower = false): void =
-  let input: string = readLine(stdin)
-  var inputNumber: int
+  var input: int
   try:
-    inputNumber = parseInt(input)
+    input = parseInt readLine stdin
   except ValueError:
-    stderr.writeLine("Invalid input")
+    stderr.writeLine "Invalid input"
     return
   if upper:
-    echo toUpperAscii judge inputNumber
+    echo toUpperAscii judge input
   elif lower:
-    echo toLowerAscii judge inputNumber
+    echo toLowerAscii judge input
   else:
-    echo judge inputNumber
+    echo judge input
 
 when isMainModule:
   import cligen
