@@ -1,6 +1,6 @@
 import std/strutils
 
-func fizzBuzz(num: int): string =
+func judge(num: int): string =
   if num mod 15 == 0:
     return "FizzBuzz"
   elif num mod 3 == 0:
@@ -10,7 +10,7 @@ func fizzBuzz(num: int): string =
   else:
     return $num
 
-proc main(upper = false, lower = false): void =
+proc fizzbuzz(upper = false, lower = false): void =
   let input: string = readLine(stdin)
   var inputNumber: int
   try:
@@ -19,15 +19,15 @@ proc main(upper = false, lower = false): void =
     stderr.writeLine("Invalid input")
     return
   if upper:
-    echo toUpperAscii fizzBuzz inputNumber
+    echo toUpperAscii judge inputNumber
   elif lower:
-    echo toLowerAscii fizzBuzz inputNumber
+    echo toLowerAscii judge inputNumber
   else:
-    echo fizzBuzz inputNumber
+    echo judge inputNumber
 
 when isMainModule:
   import cligen
-  dispatch main, help = {
+  dispatch fizzbuzz, help = {
     "help": "display this help",
     "upper": "capitalize output",
     "lower": "lowercase output"
