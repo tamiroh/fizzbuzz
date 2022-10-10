@@ -18,7 +18,7 @@ $ nimble install https://github.com/tamiroh/fizzbuzz.git
 ```
 $ fizzbuzz --help                                      
 Usage:
-  main [optional-params] 
+  fizzbuzz [optional-params] 
 Options:
   -h, --help                  display this help
   --help-syntax               advanced: prepend,plurals,..
